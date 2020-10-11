@@ -22,7 +22,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     EditText edtEmail, edtPass;
-    Button btnLogin;
+    Button btnLogin, btnIrRegistro;
     pruebaClient _pruebaClient;
     pruebaServicio _pruebaServicio;
 
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         edtEmail = findViewById(R.id.edtEmail);
         edtPass = findViewById(R.id.edtPass);
         btnLogin = findViewById(R.id.btnLogin);
+        btnIrRegistro = findViewById(R.id.btnIrRegistro);
     }
 
 
@@ -56,6 +57,21 @@ public class MainActivity extends AppCompatActivity {
                 irALogin();
             }
         });
+
+
+
+        btnIrRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                irARegistro();
+            }
+        });
+    }
+
+    private void irARegistro() {
+        Intent i = new Intent(MainActivity.this, RegistroActivity.class);
+        startActivity(i);
+        finish();
     }
 
     private void irALogin() {
