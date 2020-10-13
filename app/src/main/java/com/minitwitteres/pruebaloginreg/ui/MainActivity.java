@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.minitwitteres.pruebaloginreg.R;
@@ -14,6 +15,7 @@ import com.minitwitteres.pruebaloginreg.retrofit.pruebaClient;
 import com.minitwitteres.pruebaloginreg.retrofit.pruebaServicio;
 import com.minitwitteres.pruebaloginreg.retrofit.respuesta.RespuestaLogin;
 import com.minitwitteres.pruebaloginreg.retrofit.solicitar.SolicitarLogin;
+import com.minitwitteres.pruebaloginreg.retrofit.solicitar.SolicitudCambiarPass;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,9 +24,10 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     EditText edtEmail, edtPass;
-    Button btnLogin, btnIrRegistro;
+    Button btnLogin, btnIrRegistro, txtIrCambiarPass;
     pruebaClient _pruebaClient;
     pruebaServicio _pruebaServicio;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         edtPass = findViewById(R.id.edtPass);
         btnLogin = findViewById(R.id.btnLogin);
         btnIrRegistro = findViewById(R.id.btnIrRegistro);
+        txtIrCambiarPass= findViewById(R.id.txtIrCambioPass);
     }
 
 
@@ -66,7 +70,17 @@ public class MainActivity extends AppCompatActivity {
                 irARegistro();
             }
         });
+        txtIrCambiarPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, CambiasPassActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
     }
+
 
     private void irARegistro() {
         Intent i = new Intent(MainActivity.this, RegistroActivity.class);

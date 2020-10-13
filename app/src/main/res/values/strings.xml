@@ -6,4 +6,6 @@
     <string name="telefono">Telefono</string>
     <string name="contrasena">Contraseña</string>
     <string name="registrarse">Registrarse</string>
+    <string name="ingrese_su_id">Ingrese su ID</string>
+    <string name="cambie_su_contrasena">Cambie su contraseña</string>
 </resources>
